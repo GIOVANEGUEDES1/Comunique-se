@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#176b61">
+  <meta name="description" content="Comunicação acessível para expressar necessidades, sensações e preferências com autonomia.">
+  <title>COMUNIQUE-SE — Comunicação acessível</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/app-icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M7 8h34v25H22L11 42v-9H7z"/><path d="M15 17h18M15 24h12"/></svg></div>
+    <div class="brand-copy"><strong>COMUNIQUE-SE</strong><span>Você tem voz. A gente te ajuda a expressar.</span></div>
+    <button id="settingsButton" class="icon-button menu-button" type="button" aria-label="Abrir configurações" title="Configurações">⋮</button>
+  </header>
+
+  <main id="appMain">
+    <section id="homeScreen" class="screen active" aria-labelledby="welcomeTitle">
+      <div class="home-grid">
+        <button class="home-action communicate" data-action="communicate">
+          <span class="big-icon" aria-hidden="true">🗣️</span><span class="action-name">Quero comunicar</span><small>Dizer o que eu quero</small>
+        </button>
+        <button class="home-action people" data-action="people">
+          <span class="big-icon" aria-hidden="true">🧑🏻‍🤝‍🧑🏻</span><span class="action-name">Falar com alguém</span><small>Família e cuidadores</small>
+        </button>
+        <button class="home-action pain" data-action="pain">
+          <span class="big-icon" aria-hidden="true">🤕</span><span class="action-name">Estou com dor</span><small>Mostrar onde dói</small>
+        </button>
+        <button class="home-action help" data-action="help">
+          <span class="big-icon" aria-hidden="true"><svg class="home-pictogram" viewBox="0 0 96 96"><path d="M25 67h46l-6-8V43a17 17 0 0 0-34 0v16zM42 75a7 7 0 0 0 12 0"/><path d="M48 6v9M14 24l7 6M82 24l-7 6"/></svg></span><span class="txt"><span class="action-name">Preciso de ajuda agora</span><small>Toca um alarme neste aparelho</small></span>
+        </button>
+      </div>
+    </section>
+
+    <section id="communicateScreen" class="screen" aria-labelledby="communicateTitle">
+      <div class="section-heading"><button class="back-button" data-back>← Voltar</button><div><p class="eyebrow">QUERO COMUNICAR</p><h1 id="communicateTitle">O que você quer dizer?</h1></div></div>
+      <ol class="steps" aria-hidden="true"><li class="now"></li><li class=""></li><li class=""></li></ol>
+      <div id="categoryGrid" class="category-grid"></div>
+    </section>
+
+    <section id="itemsScreen" class="screen" aria-labelledby="itemsTitle">
+      <div class="section-heading"><button class="back-button" data-back="communicate">← Categorias</button><div><p class="eyebrow">QUERO COMUNICAR</p><h1 id="itemsTitle">Escolha uma opção</h1></div></div>
+      <ol class="steps" aria-hidden="true"><li class="done"></li><li class="now"></li><li class=""></li></ol>
+      <p class="helper">Toque na figura.</p>
+      <div id="itemGrid" class="item-grid"></div>
+    </section>
+
+    <section id="adjustmentScreen" class="screen" aria-labelledby="adjustmentTitle">
+      <div class="section-heading"><button class="back-button" data-back="items">← Voltar</button><div><p class="eyebrow">PERSONALIZE A MENSAGEM</p><h1 id="adjustmentTitle">Como você quer?</h1></div></div>
+      <ol class="steps" aria-hidden="true"><li class="done"></li><li class="done"></li><li class="now"></li></ol>
+      <p class="helper">Escolha como você quer.</p>
+      <div id="adjustmentGrid" class="adjustment-grid"></div>
+      <div id="messageBar" class="message-bar hidden" aria-live="polite">
+        <div><span class="message-label">SUA MENSAGEM</span><p id="currentMessage"></p></div>
+        <div class="message-actions"><button id="speakMessage" class="primary-button">🔊 Falar</button><button id="stopSpeech" class="secondary-button">⏹ Parar</button></div>
+      </div>
+    </section>
+
+    <section id="painScreen" class="screen" aria-labelledby="painTitle">
+      <div class="section-heading"><button class="back-button" data-back>← Voltar</button><div><p class="eyebrow">ESTOU COM DOR</p><h1 id="painTitle">Onde está doendo?</h1></div></div>
+      <p class="helper">Toque nas partes do corpo. Você pode selecionar mais de uma.</p>
+      <div class="body-controls"><button id="frontView" class="choice-button selected">Frente</button><button id="backView" class="choice-button">Costas</button><button id="clearBody" class="secondary-button">Limpar seleção</button></div>
+      <div class="body-layout">
+        <div class="body-map" id="bodyMap" aria-label="Desenho interativo do corpo humano"></div>
+        <aside class="pain-side"><h2>Regiões selecionadas</h2><div id="selectedRegions" class="selected-regions"><span class="muted">Nenhuma região selecionada.</span></div>
+          <h2>Como está a dor?</h2><div id="painLevels" class="stacked-options faces">
+            <button data-level="pouco">Está doendo pouco</button><button data-level="moderadamente">Está doendo moderadamente</button><button data-level="muito">Está doendo muito</button><button data-level="piorando">A dor está piorando</button><button data-level="melhorou">A dor melhorou</button><button data-level="incerto">Não sei explicar</button>
+          </div>
+          <h2>Outros desconfortos</h2><div id="discomfortGrid" class="mini-grid"></div>
+          <div class="pain-result"><p id="painMessage" aria-live="polite">Selecione uma região e uma opção para montar a mensagem.</p><button id="confirmPain" class="primary-button">Confirmar e falar</button></div>
+        </aside>
+      </div>
+      <p class="safety-note">Este recurso ajuda a comunicar sensações e não faz diagnóstico médico.</p>
+    </section>
+
+    <section id="peopleScreen" class="screen" aria-labelledby="peopleTitle">
+      <div class="section-heading"><button class="back-button" data-back>← Voltar</button><div><p class="eyebrow">FALAR COM ALGUÉM</p><h1 id="peopleTitle">Quem você quer chamar?</h1></div></div>
+      <div class="people-layout"><div><div id="peopleGrid" class="people-grid"></div><button id="addPersonButton" class="secondary-button full-width">＋ Cadastrar pessoa</button></div>
+        <div id="personDetails" class="panel hidden"><h2 id="personName">Pessoa</h2><p id="personRelation" class="helper"></p><div id="personActions" class="stacked-options"></div><div id="customPhrases"></div></div>
+      </div>
+      <div id="personFormPanel" class="panel hidden"><h2 id="personFormTitle">Cadastrar pessoa</h2><form id="personForm" class="form-grid">
+        <label>Nome<input name="name" required maxlength="60"></label><label>Relação ou parentesco<input name="relation" placeholder="Ex.: mãe, cuidador, amigo" maxlength="50"></label><label>Como prefere chamar?<input name="nickname" placeholder="Ex.: mamãe" maxlength="50"></label>
+        <label>Telefone para ligação (opcional)<input name="phone" type="tel" autocomplete="tel" maxlength="24" pattern="[+0-9() .\-]{5,24}" placeholder="Ex.: +55 11 99999-9999"></label>
+        <label class="full-width">Fotografia (opcional)<input name="photo" type="file" accept="image/*"></label>
+        <div class="form-actions"><button type="submit" class="primary-button">Salvar pessoa</button><button id="cancelPersonForm" type="button" class="secondary-button">Cancelar</button></div>
+      </form></div>
+    </section>
+
+    <section id="helpScreen" class="screen" aria-labelledby="helpTitle">
+      <div class="section-heading"><button class="back-button" data-back>← Voltar</button><div><p class="eyebrow">BOTÃO DE ALERTA</p><h1 id="helpTitle">Preciso de ajuda agora</h1></div></div>
+      <div id="alarmCard" class="alarm-card">
+        <div class="alarm-icon" aria-hidden="true"><svg class="alarm-pictogram" viewBox="0 0 96 96"><path d="M25 67h46l-6-8V43a17 17 0 0 0-34 0v16zM42 75a7 7 0 0 0 12 0"/><path d="M48 6v9M14 24l7 6M82 24l-7 6"/></svg></div><p id="alarmStatus" class="alarm-status">ALARME DESATIVADO</p>
+        <p id="alarmDescription">Toque no botão para reproduzir um alerta sonoro neste dispositivo.</p>
+        <button id="alarmToggle" class="alarm-toggle" aria-pressed="false">ATIVAR ALARME</button>
+        <button id="alarmSpeak" class="secondary-button">Falar “Preciso de ajuda agora”</button>
+        <h2>Contatos de ajuda</h2><div id="helpContacts" class="stacked-options"></div>
+      </div>
+      <p class="safety-note">Importante: o alarme é local. O app tenta manter a tela ativa e permite abrir o discador para um contato cadastrado, mas não envia notificações automaticamente. O sistema pode suspender o navegador.</p>
+    </section>
+
+    <section id="settingsScreen" class="screen" aria-labelledby="settingsTitle">
+      <div class="section-heading"><button class="back-button" data-back>← Voltar</button><div><p class="eyebrow">PERSONALIZAÇÃO</p><h1 id="settingsTitle">Configurações</h1></div></div>
+      <div class="settings-grid">
+        <section class="panel"><h2>Idioma</h2><p class="helper">Muda o idioma dos textos e da voz.</p>
+          <label>Idioma <select id="language"><option value="pt">Português</option><option value="en">English</option><option value="es">Español</option></select></label>
+        </section>
+        <section class="panel"><h2>Acessibilidade</h2>
+          <label>Tamanho do texto <select id="fontSize"><option value="normal">Normal</option><option value="large">Grande</option><option value="xlarge">Muito grande</option></select></label>
+          <label class="check-label"><input id="highContrast" type="checkbox"> Alto contraste</label>
+          <label class="check-label"><input id="switchScan" type="checkbox"> Varredura automática para switch</label>
+          <label>Intervalo da varredura <select id="switchScanInterval"><option value="1">1 segundo</option><option value="2">2 segundos</option><option value="3">3 segundos</option></select></label>
+          <label>Velocidade da voz <input id="speechRate" type="range" min="0.6" max="1.4" step="0.1" value="1"></label>
+          <label>Voz disponível <select id="voiceSelect"><option value="">Voz padrão do dispositivo</option></select></label>
+          <button id="testVoice" class="secondary-button">Testar voz</button>
+        </section>
+        <section class="panel"><h2>Dados e backup</h2><p class="helper">Nomes, telefones, fotos e preferências são guardados sem criptografia neste navegador. Este protótipo não implementa login ou PIN. Limpar os dados do site pode apagá-los.</p>
+          <button id="exportData" class="primary-button">Exportar backup</button>
+          <label class="file-label">Importar backup<input id="importData" type="file" accept=".json,application/json"></label>
+          <button id="protectStorage" class="secondary-button">Solicitar proteção contra limpeza automática</button>
+          <p id="storageStatus" class="helper" role="status">A proteção do navegador não impede a exclusão manual dos dados do site.</p>
+          <button id="resetData" class="danger-button">Restaurar dados iniciais</button>
+        </section>
+        <section class="panel"><h2>Personalizar itens</h2><p class="helper">Você pode adicionar uma opção personalizada à categoria selecionada.</p>
+          <label>Categoria<select id="customCategory"></select></label><label>Nome da opção<input id="customItemName" maxlength="60" placeholder="Ex.: Quero ouvir música"></label><label>Frase falada<input id="customItemPhrase" maxlength="140" placeholder="Ex.: Quero ouvir música"></label>
+          <button id="addCustomItem" class="primary-button">Adicionar opção</button>
+          <p class="helper">Para trocar uma fotografia, use o cadastro de pessoas ou o seletor de imagem de um item quando essa opção estiver disponível. Itens iniciais usam ícones ilustrativos como alternativa.</p>
+        </section>
+        <section class="panel"><h2>Períodos do dia</h2><p class="helper">As sugestões por período não aparecem na tela inicial. Esta seção permite guardar uma preferência para futuras personalizações.</p>
+          <label>Período preferido<select id="dayPeriod"><option value="any">Sem preferência</option><option value="morning">Manhã</option><option value="afternoon">Tarde</option><option value="evening">Noite</option></select></label>
+          <button id="savePeriod" class="secondary-button">Salvar preferência</button>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-copy"><span>COMUNIQUE-SE</span><span>Comunicação, autonomia e cuidado.</span></div>
+    <details class="info-note footer-privacy"><summary>ⓘ Sobre privacidade</summary><p>Nomes, telefones, fotos e preferências ficam neste navegador, sem criptografia. Escolhas de dor não são salvas. Este protótipo não tem login ou PIN; quem acessa o navegador pode ver os cadastros. Limpar os dados do site pode apagá-los. O app não envia alertas nem chama serviços de emergência.</p></details>
+  </footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="data.js"></script>
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+  <script src="pwa.js"></script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+{
+  "version": 1,
+  "categories": [
+    {
+      "id": "food",
+      "name": "Comida",
+      "symbol": "◉",
+      "description": "Alimentos e refeições",
+      "items": [
+        {
+          "id": "meal",
+          "name": "Quero comer",
+          "phrase": "Quero comer",
+          "type": "food",
+          "adjustments": [
+            "Quero mais",
+            "Quero menos",
+            "Quero uma porção menor",
+            "Quero pedaços menores",
+            "Quero mais sal",
+            "Quero menos sal",
+            "Não gostei",
+            "Está bom",
+            "Terminei"
+          ]
+        },
+        {
+          "id": "coffee",
+          "name": "Café",
+          "phrase": "Quero café",
+          "type": "coffee",
+          "adjustments": [
+            "Quero o café mais quente",
+            "Quero o café mais frio",
+            "Quero mais café",
+            "Quero menos café",
+            "Quero mais leite",
+            "Quero menos leite",
+            "Quero mais açúcar",
+            "Quero menos açúcar",
+            "Está bom assim",
+            "Terminei"
+          ]
+        },
+        {
+          "id": "other-food",
+          "name": "Outra comida",
+          "phrase": "Quero outra comida",
+          "type": "food",
+          "adjustments": [
+            "Quero mais",
+            "Quero menos",
+            "Quero uma porção menor",
+            "Quero pedaços menores",
+            "Não gostei",
+            "Está bom",
+            "Terminei"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drinks",
+      "name": "Bebidas",
+      "symbol": "◒",
+      "description": "Água, suco e outras bebidas",
+      "items": [
+        {
+          "id": "water",
+          "name": "Água",
+          "phrase": "Quero água",
+          "type": "coldDrink",
+          "adjustments": [
+            "Quero mais",
+            "Quero menos",
+            "Quero mais gelado",
+            "Quero sem gelo",
+            "Quero com gelo",
+            "Está bom",
+            "Terminei"
+          ]
+        },
+        {
+          "id": "juice",
+          "name": "Suco",
+          "phrase": "Quero suco",
+          "type": "coldDrink",
+          "adjustments": [
+            "Quero mais",
+            "Quero menos",
+            "Quero mais gelado",
+            "Quero sem gelo",
+            "Quero com gelo",
+            "Está bom",
+            "Terminei"
+          ]
+        },
+        {
+          "id": "drink-other",
+          "name": "Outra bebida",
+          "phrase": "Quero outra bebida",
+          "type": "coldDrink",
+          "adjustments": [
+            "Quero mais",
+            "Quero menos",
+            "Quero mais gelado",
+            "Quero sem gelo",
+            "Quero com gelo",
+            "Está bom",
+            "Terminei"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "activities",
+      "name": "Atividades",
+      "symbol": "▷",
+      "description": "TV, música e lazer",
+      "items": [
+        {
+          "id": "tv",
+          "name": "Televisão",
+          "phrase": "Quero assistir à televisão",
+          "type": "tv",
+          "adjustments": [
+            "Aumentar o volume",
+            "Diminuir o volume",
+            "Trocar de canal",
+            "Quero outro programa",
+            "Quero desligar"
+          ]
+        },
+        {
+          "id": "music",
+          "name": "Música",
+          "phrase": "Quero ouvir música",
+          "type": "general",
+          "adjustments": [
+            "Quero aumentar o volume",
+            "Quero diminuir o volume",
+            "Quero outra música",
+            "Está bom",
+            "Terminei"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "needs",
+      "name": "Necessidades",
+      "symbol": "⌂",
+      "description": "Banheiro, quarto e descanso",
+      "items": [
+        {
+          "id": "bathroom",
+          "name": "Banheiro",
+          "phrase": "Quero ir ao banheiro",
+          "type": "bathroom",
+          "adjustments": [
+            "Quero ir ao banheiro",
+            "Preciso de ajuda",
+            "Preciso de privacidade",
+            "Quero lavar as mãos",
+            "Terminei"
+          ]
+        },
+        {
+          "id": "bedroom",
+          "name": "Quarto e descanso",
+          "phrase": "Quero ir para o quarto",
+          "type": "bedroom",
+          "adjustments": [
+            "Quero ir para o quarto",
+            "Quero deitar",
+            "Quero sentar",
+            "Quero dormir",
+            "Quero descansar",
+            "Quero acender a luz",
+            "Quero apagar a luz",
+            "Preciso de ajuda"
+          ]
+        },
+        {
+          "id": "position",
+          "name": "Mudar de posição",
+          "phrase": "Quero mudar de posição",
+          "type": "general",
+          "adjustments": [
+            "Quero sentar",
+            "Quero deitar",
+            "Quero mudar de posição",
+            "Preciso de ajuda",
+            "Está bom"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "other",
+      "name": "Outras coisas",
+      "symbol": "＋",
+      "description": "Mais formas de se expressar",
+      "items": [
+        {
+          "id": "other-thing",
+          "name": "Outra coisa",
+          "phrase": "Quero outra coisa",
+          "type": "general",
+          "adjustments": [
+            "Quero outra coisa",
+            "Não gostei",
+            "Está bom",
+            "Preciso de ajuda",
+            "Terminei"
+          ]
+        }
+      ]
+    }
+  ],
+  "initialPeople": [],
+  "discomforts": [
+    "Estou com coceira",
+    "Estou com enjoo",
+    "Estou com frio",
+    "Estou com calor",
+    "Estou cansado",
+    "Estou incomodado",
+    "Preciso de ajuda"
+  ],
+  "personActions": [
+    {
+      "id": "call-now",
+      "label": "Quero chamar agora",
+      "template": "Quero chamar {person} agora."
+    },
+    {
+      "id": "later",
+      "label": "Quero falar mais tarde",
+      "template": "Quero falar com {person} mais tarde."
+    },
+    {
+      "id": "come",
+      "label": "Quero que venha até mim",
+      "template": "Quero que {person} venha até mim."
+    },
+    {
+      "id": "company",
+      "label": "Quero companhia",
+      "template": "Quero a companhia de {person}."
+    },
+    {
+      "id": "help",
+      "label": "Preciso de ajuda dessa pessoa",
+      "template": "Preciso da ajuda de {person}."
+    },
+    {
+      "id": "miss",
+      "label": "Estou com saudade",
+      "template": "Estou com saudade de {person}."
+    }
+  ]
+}

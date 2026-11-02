@@ -1,0 +1,19 @@
+{
+  "name": "COMUNIQUE-SE",
+  "short_name": "COMUNIQUE-SE",
+  "description": "Comunicação acessível para expressar necessidades, sensações e preferências.",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6f3ec",
+  "theme_color": "#12766a",
+  "icons": [
+    {
+      "src": "assets/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
