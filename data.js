@@ -26,24 +26,6 @@ window.COMUNICAVIDA_DATA = {
           ]
         },
         {
-          "id": "coffee",
-          "name": "Café",
-          "phrase": "Quero café",
-          "type": "coffee",
-          "adjustments": [
-            "Quero o café mais quente",
-            "Quero o café mais frio",
-            "Quero mais café",
-            "Quero menos café",
-            "Quero mais leite",
-            "Quero menos leite",
-            "Quero mais açúcar",
-            "Quero menos açúcar",
-            "Está bom assim",
-            "Terminei"
-          ]
-        },
-        {
           "id": "other-food",
           "name": "Outra comida",
           "phrase": "Quero outra comida",
@@ -64,7 +46,7 @@ window.COMUNICAVIDA_DATA = {
       "id": "drinks",
       "name": "Bebidas",
       "symbol": "◒",
-      "description": "Água, suco e outras bebidas",
+      "description": "Água, suco, café e outras bebidas",
       "items": [
         {
           "id": "water",
@@ -93,6 +75,24 @@ window.COMUNICAVIDA_DATA = {
             "Quero sem gelo",
             "Quero com gelo",
             "Está bom",
+            "Terminei"
+          ]
+        },
+        {
+          "id": "coffee",
+          "name": "Café",
+          "phrase": "Quero café",
+          "type": "coffee",
+          "adjustments": [
+            "Quero o café mais quente",
+            "Quero o café mais frio",
+            "Quero mais café",
+            "Quero menos café",
+            "Quero mais leite",
+            "Quero menos leite",
+            "Quero mais açúcar",
+            "Quero menos açúcar",
+            "Está bom assim",
             "Terminei"
           ]
         },
